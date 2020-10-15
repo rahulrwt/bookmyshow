@@ -1,17 +1,18 @@
 package baseClasses;
 
-import java.util.ArrayList;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class TopMenu {
+import PageClasses.Events;
+
+public class TopMenu extends BaseUi {
 
 	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/header/div[1]/div/div/div/div[2]/div[2]/div[1]")
 	WebElement signIn;
 	
-	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/header/div[2]/div/div/div/div[1]/div/a[4]")
-	WebElement sports;
+	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/div[2]/header/div[2]/div/div/div/div[1]/div/a[2]")
+	WebElement events;						//event
 	
 	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/header/div[2]/div/div/div/div[1]/div/a[1]")
 	WebElement movies;
@@ -35,8 +36,14 @@ public class TopMenu {
 	{
 		location.click();
 		mumbai.click();
+	
 	}
 	
+	public void goToEvents()
+	{
+		events.click();
+		PageFactory.initElements(driver,Events.class);
+	}
 	public void signInUsingGmail()
 	{
 		signIn.click();
@@ -44,6 +51,8 @@ public class TopMenu {
 		//handle new window
 	}
 	//Storing popular cities in arrayList to check if the input location is from popular cities
+	
+	
 //	public void setPopular(String city)
 //	{
 //		popularCities=new ArrayList<>();
