@@ -17,10 +17,17 @@ public class bookMyShow {
 		Sports sports=topMenu.goToSports();
 		sports.setDate();
 		sports.setPrice();
+		//done
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		topMenu=sports.getTopMenu();
-		Movies movies=topMenu.gotToMovies();
+		Movies movies=topMenu.goToMovies();
 		movies.clickOnComingSoon();
-		
-		
+		movies.fetchAllMoviesLanguages();
 	}
 }

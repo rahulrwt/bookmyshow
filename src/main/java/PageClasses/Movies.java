@@ -1,7 +1,10 @@
 package PageClasses;
 
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +19,7 @@ public class Movies extends BaseUi{
 	
 	ArrayList<String> moviesLanguages;
 	
-	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/div[3]/div[2]/div[3]/div/div[2]/a[1]/div/div[2]/div/img")
+
 	WebElement comingSoon;
 	
 	
@@ -28,7 +31,7 @@ public class Movies extends BaseUi{
 	}
 	public void clickOnComingSoon()
 	{
-		comingSoon.click();
+		driver.findElement(By.xpath("//*[@id=\'super-container\']/div[2]/div[3]/div[2]/div[2]/div/div[2]/a[1]/div/div[2]/div/img")).click();
 	}
 	public TopMenu getTopMenu()
 	{
@@ -36,7 +39,16 @@ public class Movies extends BaseUi{
 	}
 	public void fetchAllMoviesLanguages()
 	{
-		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<WebElement> languages=driver.findElements(By.xpath("//*[@class=\"style__StyledText-tgsgks-0 cAIFpf\"]"));
+			for(int i=0;i<languages.size();i++){
+				System.out.println(languages.get(i).getText());
+			}
 	}
 	
 }

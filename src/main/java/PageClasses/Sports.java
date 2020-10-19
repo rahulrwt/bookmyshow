@@ -1,5 +1,6 @@
 package PageClasses;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,11 +16,11 @@ public class Sports	extends BaseUi {
 	
 	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/div[4]/div[1]/div/div[2]/div[1]/div[2]/div[3]/div[2]/div/div[2]")
 	WebElement weekend;
+
 	
-	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/div[4]/div[1]/div/div[2]/div[4]/div/div[1]")
 	WebElement price;
 	
-	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/div[4]/div[1]/div/div[2]/div[4]/div/div[1]")
+	
 	WebElement free;
 	
 	public Sports(WebDriver driver)
@@ -30,13 +31,27 @@ public class Sports	extends BaseUi {
 	
 	public void setDate()
 	{
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		weekend.click();
 	}
 	
 	public void setPrice()
 	{
-		price.click();
-		free.click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		driver.findElement(By.xpath("//*[@id=\'super-container\']/div[2]/div[4]/div[1]/div/div[2]/div[4]/div/div[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\'super-container\']/div[2]/div[4]/div[1]/div/div[2]/div[4]/div[2]/div[1]/div[2]/div/div")).click();
+		
 	}
 	
 	public TopMenu getTopMenu()

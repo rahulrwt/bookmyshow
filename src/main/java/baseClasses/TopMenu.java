@@ -62,7 +62,7 @@ public class TopMenu extends BaseUi {
 		
 	}
 	
-	public Movies gotToMovies()
+	public Movies goToMovies()
 	{
 		try {
 			Thread.sleep(5000);
@@ -70,7 +70,7 @@ public class TopMenu extends BaseUi {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver.findElement(By.xpath("//*[@id=\"super-container\"]/div[2]/header/div[2]/div/div/div/div[1]/div/a[4]")).click();
+		driver.findElement(By.xpath("//*[@id=\'super-container\']/div[2]/div[2]/header/div[2]/div/div/div/div[1]/div/a[1]")).click();
 		return PageFactory.initElements(driver, Movies.class);
 	}
 public void signInUsingGmail()
