@@ -12,18 +12,27 @@ import baseClasses.TopMenu;
 
 public class Movies extends BaseUi{
 	WebDriver driver;
+	public TopMenu topMenu;
+	
 	ArrayList<String> moviesLanguages;
 	
 	@FindBy(xpath="//*[@id=\"super-container\"]/div[2]/div[3]/div[2]/div[3]/div/div[2]/a[1]/div/div[2]/div/img")
 	WebElement comingSoon;
 	
-	public TopMenu topMenu;
 	
 	public Movies(WebDriver driver)
 	{
 		this.driver=driver;
 		topMenu=PageFactory.initElements(driver, TopMenu.class);
 		
+	}
+	public void clickOnComingSoon()
+	{
+		comingSoon.click();
+	}
+	public TopMenu getTopMenu()
+	{
+		return topMenu;
 	}
 	public void fetchAllMoviesLanguages()
 	{

@@ -1,5 +1,6 @@
 package baseClasses;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,9 +17,9 @@ public class BaseUi {
 
 	public WebDriver driver;
 
-	@FindBy(xpath="//*[@id=\"wzrk-cancel\"]")
-	WebElement cancel;
-	
+//	@FindBy(id="")
+//	WebElement cancel;
+//	
 	@FindBy(xpath="//*[@id=\"modal-root\"]/div/div/div/div[2]/ul/li[1]/div/div")
 	WebElement mumbai;
 	
@@ -54,14 +55,7 @@ public class BaseUi {
 		return PageFactory.initElements(driver,HomePage.class);
 	}
 	
-		public void declineAlert()
-	{
-		cancel.click();
-	}
-		public void setLocation()
-		{
-			mumbai.click();
-		}
+	
 
 	
 }
