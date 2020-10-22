@@ -1,28 +1,21 @@
 package baseClasses;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import PageClasses.HomePage;
 
 public class BaseUi {
 
 	public WebDriver driver;
+	public WebDriverWait wait=null;
 
-//	@FindBy(id="")
-//	WebElement cancel;
-//	
-	@FindBy(xpath="//*[@id=\"modal-root\"]/div/div/div/div[2]/ul/li[1]/div/div")
-	WebElement mumbai;
-	
 	public void invokeBrowser(String browserName) {
 
 		try {
@@ -54,8 +47,5 @@ public class BaseUi {
 		driver.get(URL);
 		return PageFactory.initElements(driver,HomePage.class);
 	}
-	
-	
-
 	
 }
