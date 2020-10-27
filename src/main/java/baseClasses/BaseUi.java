@@ -21,7 +21,7 @@ public class BaseUi {
 		try {
 
 			if (browserName.equalsIgnoreCase("Chrome")) {
-				System.setProperty("webdriver.chrome.driver","C:\\Users\\91950\\eclipse-workspace\\bookmyshow\\drivers\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
 			} else if (browserName.equalsIgnoreCase("Mozila")) {
 				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver");
