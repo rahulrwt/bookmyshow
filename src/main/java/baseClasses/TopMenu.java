@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import PageClasses.GoogleSignIn;
-import PageClasses.Movies;
-import PageClasses.Sports;
+import pageClasses.GoogleSignIn;
+import pageClasses.Movies;
+import pageClasses.Sports;
 
 public class TopMenu extends BaseUi {
 
@@ -16,10 +16,10 @@ public class TopMenu extends BaseUi {
 	@FindBy(xpath = "//*[@id=\"super-container\"]/div[2]/div[2]/header/div[1]/div/div/div/div[2]/div[2]/div[1]")
 	WebElement signIn;
 
-	@FindBy(xpath = "//*[@id=\"super-container\"]/div[2]/header/div[2]/div/div/div/div[1]/div/a[4]")
+	@FindBy(linkText = "Sports")
 	WebElement sports;
 
-	@FindBy(xpath = "//*[@id=\"super-container\"]/div[2]/div[2]/header/div[2]/div/div/div/div[1]/div/a[1]")
+	@FindBy(linkText = "Movies")
 	WebElement movies;
 
 	@FindBy(xpath = "//*[@id=\"super-container\"]/div[2]/header/div[1]/div/div/div/div[2]/div[1]/span")
@@ -48,40 +48,27 @@ public class TopMenu extends BaseUi {
 	}
 
 	public Sports goToSports() {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	
+		waits(2000);
 		sports.click();
 		return PageFactory.initElements(driver, Sports.class);
 
 	}
 
 	public Movies goToMovies() {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		waits(2000);
 		movies.click();
 		return PageFactory.initElements(driver, Movies.class);
 	}
 
 	public GoogleSignIn signInUsingGmail() {
-		signIn.click();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		gmail.click();
 		return PageFactory.initElements(driver, GoogleSignIn.class);
-		// handle new window
+		
+	}
+	public void signInClick() {
+		signIn.click();
+		waits(2000);
 	}
 
 }

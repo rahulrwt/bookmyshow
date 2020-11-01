@@ -1,4 +1,4 @@
-package PageClasses;
+package pageClasses;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,26 +20,15 @@ public class HomePage extends BaseUi {
 	WebElement mumbai;
 
 	public HomePage(WebDriver driver) {
-		this.driver = driver;
-		topMenu = PageFactory.initElements(driver, TopMenu.class);
+		this.driver = driver; 
 	}
 
-	public void declineAlert() {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public TopMenu declineAlert() {
+		waits(3000);
 		cancel.click();
-
-	}
-
-	public void setLocation() {
+		waits(2000);
 		mumbai.click();
-	}
+		return PageFactory.initElements(driver, TopMenu.class);
 
-	public TopMenu getTopMenu() {
-		return topMenu;
 	}
 }
